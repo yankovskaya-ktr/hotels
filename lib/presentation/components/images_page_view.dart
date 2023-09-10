@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 // TODO: сделать индикатор страниц
@@ -13,11 +16,13 @@ class ImagesPageView extends StatefulWidget {
 
 class _ImagesPageViewState extends State<ImagesPageView> {
   late PageController pageController;
+  late int selectedPage;
 
   @override
   void initState() {
-    pageController = PageController();
     super.initState();
+    pageController = PageController();
+    selectedPage = 0;
   }
 
   @override
@@ -28,16 +33,49 @@ class _ImagesPageViewState extends State<ImagesPageView> {
 
   @override
   Widget build(BuildContext context) {
+    int len = widget.imageUrls.length;
+
     final pages = PageView.builder(
       itemBuilder: _pageBuilder,
-      itemCount: widget.imageUrls.length,
+      itemCount: len,
+      onPageChanged: (value) => setState(() {
+        selectedPage = value;
+      }),
     );
 
-    return Container(
-        height: 257,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-        clipBehavior: Clip.hardEdge,
-        child: pages);
+    final dotIndicator = DotsIndicator(
+      dotsCount: len,
+      position: selectedPage,
+      decorator: DotsDecorator(
+          size: const Size.fromRadius(3.5),
+          activeSize: const Size.fromRadius(3.5),
+          spacing: const EdgeInsets.all(2.5),
+          activeColor: Colors.black,
+          colors: [
+            for (int i = 0; i < len; i++)
+              Colors.black.withOpacity(
+                  pow(((len - (i - selectedPage).abs() / 2) / len), 4)
+                      .toDouble())
+          ]),
+    );
+
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Container(
+            height: 257,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+            clipBehavior: Clip.hardEdge,
+            child: pages),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 7.5),
+          margin: const EdgeInsets.only(bottom: 8),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5), color: Colors.white),
+          child: dotIndicator,
+        )
+      ],
+    );
   }
 
   Widget _pageBuilder(BuildContext context, int index) {
