@@ -1,5 +1,9 @@
 # Hotel Booking demo App with Flutter
 
+
+![Hotels_app_cmpr (2)](https://github.com/yankovskaya-ktr/hotels/assets/82261797/92c3269c-e997-41a8-8f75-b919a8b5b3e0)
+
+
 ## Functionality: 
 
 - Hotel screen
@@ -8,7 +12,7 @@
   - Form with validation
   - Add new tourist info form
 - Successful payment screen
-
+  
 ## Technologies:
 
 - **Flutter**
