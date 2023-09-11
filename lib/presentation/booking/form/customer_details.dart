@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hotels/presentation/booking/form_controller.dart';
+import 'package:hotels/presentation/booking/form/form_controller.dart';
 import 'package:hotels/presentation/constants/constants.dart';
 import 'package:hotels/presentation/styles/styles_text.dart';
 
-import '../components/decorated_container_custom.dart';
-import '../components/text_form_field_custom.dart';
+import '../../components/decorated_container_custom.dart';
+import '../../components/text_form_field_custom.dart';
 
 class CustomerDetails extends ConsumerStatefulWidget {
   const CustomerDetails({super.key});
@@ -149,24 +149,4 @@ class _CustomerDetailsState extends ConsumerState<CustomerDetails> {
 
     _lastPhoneLength = _phoneController.text.length;
   }
-
-  // void _onNumberFieldTapOutside(PointerDownEvent event) {
-  //   setState(() {
-  //     // _phoneFocusNode.unfocus();
-
-  //     _phoneController.text = '';
-  //   });
-  // }
-
-  // void _onNumberFieldSubmitted(String value) {
-  //   setState(() {
-  //     // _phoneController.text = '';
-  //   });
-  // }
-
-  // void _onNumberFieldEditingComplete() {
-  //   setState(() {
-  //     // _phoneController.text = '';
-  //   });
-  // }
 }

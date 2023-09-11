@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'booking_form_state.freezed.dart';
 
+// Field хранит  данные о валидности поля
 @freezed
 class Field with _$Field {
   const factory Field({
@@ -46,6 +47,8 @@ class TouristDetailsFields with _$TouristDetailsFields {
       passportValidity: Field.emptyValid('Срок действия загранпаспорта'));
 }
 
+// BookingFormState хранит информацию о наборе полей, количестве туристов и валидность полей, но не хранит значения полей.
+// Заполнение значений поля реализуеся стандартными механизмами FormField.
 @freezed
 class BookingFormState with _$BookingFormState {
   const factory BookingFormState({

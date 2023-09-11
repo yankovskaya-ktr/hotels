@@ -4,7 +4,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
-// TODO: сделать индикатор страниц
 class ImagesPageView extends StatefulWidget {
   final List<String> imageUrls;
 
@@ -33,18 +32,18 @@ class _ImagesPageViewState extends State<ImagesPageView> {
 
   @override
   Widget build(BuildContext context) {
-    int len = widget.imageUrls.length;
+    int pagesCount = widget.imageUrls.length;
 
     final pages = PageView.builder(
       itemBuilder: _pageBuilder,
-      itemCount: len,
+      itemCount: pagesCount,
       onPageChanged: (value) => setState(() {
         selectedPage = value;
       }),
     );
 
     final dotIndicator = DotsIndicator(
-      dotsCount: len,
+      dotsCount: pagesCount,
       position: selectedPage,
       decorator: DotsDecorator(
           size: const Size.fromRadius(3.5),
@@ -52,10 +51,12 @@ class _ImagesPageViewState extends State<ImagesPageView> {
           spacing: const EdgeInsets.all(2.5),
           activeColor: Colors.black,
           colors: [
-            for (int i = 0; i < len; i++)
-              Colors.black.withOpacity(
-                  pow(((len - (i - selectedPage).abs() / 2) / len), 4)
-                      .toDouble())
+            for (int i = 0; i < pagesCount; i++)
+              Colors.black.withOpacity(pow(
+                      ((pagesCount - (i - selectedPage).abs() / 2) /
+                          pagesCount),
+                      4)
+                  .toDouble())
           ]),
     );
 

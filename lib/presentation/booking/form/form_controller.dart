@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hotels/domain/booking_form/booking_form_state.dart';
 
-import '../../application/validators.dart';
-import '../constants/constants.dart';
+import '../../../application/validators.dart';
+import '../../constants/constants.dart';
 
+// BookingFormState хранит информацию о валидности поля, но не его значение.
+// Данные о валидности поля нужны для отрисовки кастомной заливки при ошибке в TextFormFieldCustom
+// Заполнение значений поля и запуск валидации реализуюся стандартными механизмами FormField.
 class FormController extends AutoDisposeNotifier<BookingFormState> {
   @override
   BookingFormState build() => BookingFormState.initial();
 
+  // Добавить форму для туриста
   void addTouristDetails() {
     state = state.copyWith(touristsDetails: [
       ...state.touristsDetails,
@@ -41,16 +45,6 @@ class FormController extends AutoDisposeNotifier<BookingFormState> {
         List.from(state.touristsDetails);
     touristsDetails[index] = state.touristsDetails[index]
         .copyWith(name: tourist.name.copyWith(isValid: isValid));
-
-    // for (var i = 0; i < state.touristsDetails.length; i++) {
-    //   final tourist = state.touristsDetails[i];
-    //   if (i == index) {
-    //     touristsDetails.add(
-    //         tourist.copyWith(name: tourist.name.copyWith(isValid: isValid)));
-    //   } else {
-    //     touristsDetails.add(tourist);
-    //   }
-    // }
     state = state.copyWith(touristsDetails: touristsDetails);
     return isValid;
   }

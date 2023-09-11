@@ -15,8 +15,7 @@ class SquareIcon extends StatelessWidget {
         width: 32,
         height: 32,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6),
-            color: backgroundColor), //const Color(0x190D72FF)),
+            borderRadius: BorderRadius.circular(6), color: backgroundColor),
         child: Image.asset(imageAsset));
   }
 }

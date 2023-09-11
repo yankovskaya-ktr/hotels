@@ -40,38 +40,4 @@ class Booking {
 
   factory Booking.fromJson(Map<String, dynamic> json) =>
       _$BookingFromJson(json);
-
-  factory Booking.mock() => Booking(
-      id: 1,
-      hotelName: 'Лучший пятизвездочный отель в Хургаде, Египет',
-      hotelAdress: 'Madinat Makadi, Safaga Road, Makadi Bay, Египет',
-      horating: 5,
-      ratingName: 'Превосходно',
-      departure: 'Москва',
-      arrivalCountry: 'Египет, Хургада',
-      tourDateStart: '19.09.2023',
-      tourDateStop: '27.09.2023',
-      numberOfNights: 7,
-      room: 'Люкс номер с видом на море',
-      nutrition: 'Все включено',
-      tourPrice: 289400,
-      fuelCharge: 9300,
-      serviceCharge: 2150);
 }
-
-
-//   "id": 1,
-//   "hotel_name": "Лучший пятизвездочный отель в Хургаде, Египет",
-//   "hotel_adress": "Madinat Makadi, Safaga Road, Makadi Bay, Египет",
-//   "horating": 5,
-//   "rating_name": "Превосходно",
-//   "departure": "Москва",
-//   "arrival_country": "Египет, Хургада",
-//   "tour_date_start": "19.09.2023",
-//   "tour_date_stop": "27.09.2023",
-//   "number_of_nights": 7,
-//   "room": "Люкс номер с видом на море",
-//   "nutrition": "Все включено",
-//   "tour_price": 289400,
-//   "fuel_charge": 9300,
-//   "service_charge": 2150

@@ -4,8 +4,8 @@ import 'package:hotels/presentation/components/square_icon.dart';
 import 'package:hotels/presentation/constants/constants.dart';
 import 'package:hotels/presentation/styles/styles_text.dart';
 
-import '../../domain/booking_form/booking_form_state.dart';
-import '../components/text_form_field_custom.dart';
+import '../../../domain/booking_form/booking_form_state.dart';
+import '../../components/text_form_field_custom.dart';
 import 'form_controller.dart';
 
 class TouristDetails extends ConsumerStatefulWidget {

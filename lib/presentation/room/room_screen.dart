@@ -13,12 +13,6 @@ import '../components/price_section.dart';
 import '../hotel/hotel_screen.dart';
 import '../styles/styles_text.dart';
 
-// final roomsProvider = FutureProvider.autoDispose<List<Room>>(
-//   (ref) async {
-//     return [Room.mock1(), Room.mock2()];
-//   },
-// );
-
 final roomsProvider = FutureProvider.autoDispose<ApiRooms>(
   (ref) async {
     final apiRepo = ref.watch(apiRepoProvider);
@@ -80,7 +74,6 @@ class _RoomItem extends StatelessWidget {
             children: [
               Expanded(
                   child: FilledButton(
-                      // TODO: путь
                       onPressed: () =>
                           context.pushNamed(BookingScreen.routeName),
                       child: const Text('Выбрать номер')))
@@ -97,8 +90,6 @@ class _MoreButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Container();
-
     return FilledButton(
         onPressed: () => {},
         style: ButtonStyle(
