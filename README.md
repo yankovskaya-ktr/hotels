@@ -22,4 +22,4 @@
 - **JsonSerializable** for data serialization
 - **Freezed** for models boilerplate code generation
 - **Clean Architecture**
-- Design by Figma prototype
+- Design based on Figma
